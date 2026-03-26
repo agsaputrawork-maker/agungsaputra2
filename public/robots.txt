@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /agent
+
+Sitemap: https://agungsaputra.com/sitemap.xml
