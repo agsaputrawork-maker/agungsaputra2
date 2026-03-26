@@ -3,9 +3,6 @@ import { motion } from 'framer-motion';
 import { Clock, Layers, AlertCircle, MessageSquare, TrendingUp, BarChart3, Bot, Zap, Users, LucideIcon } from 'lucide-react';
 import BentoCard from './ui/BentoCard';
 
-// --- MICRO VISUALS (Optimized & Mobile Ready) ---
-// Visuals now animate automatically on view, not just hover
-
 const VisualWorkflow = memo(() => (
   <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
     <div className="absolute inset-0 bg-cyan-500/5 blur-xl" />
@@ -38,7 +35,6 @@ const VisualBot = memo(() => (
       >
       </motion.div>
     </div>
-    {/* Animated Bubbles */}
     <motion.div 
       className="absolute top-6 right-4 md:right-8 w-8 md:w-12 h-2 md:h-3 bg-purple-500/20 rounded-full"
       animate={{ opacity: [0, 1, 0], x: [5, 0, -5] }}
@@ -61,7 +57,7 @@ const VisualDashboard = memo(() => (
         initial={{ height: "10%" }}
         whileInView={{ height: `${h}%` }}
         transition={{ duration: 1.5, delay: i * 0.2, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.5 }} // Re-animate on scroll
+        viewport={{ once: false, amount: 0.5 }}
       />
     ))}
   </div>
@@ -134,7 +130,6 @@ export const Benefits = () => {
           </p>
         </div>
 
-        {/* Bento Grid Layout */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -142,8 +137,7 @@ export const Benefits = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-4 md:gap-6 auto-rows-[minmax(160px,auto)]"
         >
-          
-          {/* Card 1: Hemat Waktu */}
+
           <motion.div variants={itemVariants} className="md:col-span-6 lg:col-span-8 md:row-span-2">
             <BentoCard className="h-full min-h-[280px]" glowColor="cyan">
               <motion.div whileTap={{ scale: 0.98 }} className="flex flex-col h-full justify-between z-10 relative cursor-pointer">
@@ -156,8 +150,7 @@ export const Benefits = () => {
                     Kurangi pekerjaan manual berulang. Tim Anda bisa fokus pada strategi, bukan terjebak input data membosankan.
                   </p>
                 </div>
-                
-                {/* Mobile Animated Graphic */}
+
                 <div className="mt-6 md:mt-8 h-20 md:h-24 w-full bg-space-800/50 rounded-xl overflow-hidden border border-white/5 relative">
                     <div className="absolute inset-0 flex items-center px-4 gap-3">
                       <div className="h-2 w-full bg-slate-700/30 rounded-full overflow-hidden">
@@ -176,7 +169,6 @@ export const Benefits = () => {
             </BentoCard>
           </motion.div>
 
-          {/* Card 2: Workflow Rapi */}
           <motion.div variants={itemVariants} className="md:col-span-3 lg:col-span-4">
             <BentoCard className="h-full min-h-[200px]" glowColor="purple">
               <motion.div whileTap={{ scale: 0.97 }} className="cursor-pointer h-full">
@@ -191,7 +183,6 @@ export const Benefits = () => {
             </BentoCard>
           </motion.div>
 
-          {/* Card 3: Minim Error */}
           <motion.div variants={itemVariants} className="md:col-span-3 lg:col-span-4">
             <BentoCard className="h-full min-h-[200px]" glowColor="cyan">
               <motion.div whileTap={{ scale: 0.97 }} className="cursor-pointer h-full">
@@ -206,7 +197,6 @@ export const Benefits = () => {
             </BentoCard>
           </motion.div>
 
-           {/* Card 4: Scale Up */}
            <motion.div variants={itemVariants} className="md:col-span-3 lg:col-span-4 md:row-span-2">
             <BentoCard className="h-full min-h-[280px]" glowColor="cyan">
               <motion.div whileTap={{ scale: 0.98 }} className="h-full flex flex-col justify-between cursor-pointer">
@@ -219,8 +209,7 @@ export const Benefits = () => {
                       Sistem yang tahan banting saat orderan naik 10x lipat. Growth tanpa chaos.
                     </p>
                   </div>
-                  
-                  {/* Graphic: Animated Bar Chart on Scroll */}
+
                   <div className="mt-4 flex items-end gap-2 h-20 px-1 border-b border-white/5">
                     {[35, 60, 45, 80, 50, 95].map((h, i) => (
                         <motion.div 
@@ -237,7 +226,6 @@ export const Benefits = () => {
             </BentoCard>
            </motion.div>
 
-          {/* Card 5: Follow-up Cepat */}
           <motion.div variants={itemVariants} className="md:col-span-3 lg:col-span-4">
             <BentoCard className="h-full min-h-[180px]" glowColor="purple">
                <motion.div whileTap={{ scale: 0.97 }} className="cursor-pointer h-full">
@@ -252,7 +240,6 @@ export const Benefits = () => {
             </BentoCard>
           </motion.div>
 
-          {/* Card 6: Keputusan Mudah */}
           <motion.div variants={itemVariants} className="md:col-span-6 lg:col-span-4">
             <BentoCard className="h-full min-h-[180px]" glowColor="cyan">
               <motion.div whileTap={{ scale: 0.97 }} className="cursor-pointer h-full">
@@ -302,13 +289,11 @@ export const Services = () => {
 
   return (
     <section className="py-20 md:py-24 bg-space-900 border-t border-white/5 relative overflow-hidden">
-      {/* Background Decor */}
       <div className="absolute top-1/2 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-cyan-900/10 blur-[80px] md:blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-           
-           {/* Sticky Header - Mobile Optimized (Stays static on mobile, Sticky on Desktop) */}
+
            <div className="lg:sticky lg:top-32 relative">
              <motion.div
                initial={{ opacity: 0, y: 20 }}
@@ -331,8 +316,7 @@ export const Services = () => {
              <p className="text-base md:text-lg text-slate-400 mb-8 leading-relaxed max-w-md">
                Setiap bisnis unik. Kami tidak menjual template generik, tapi membangun sistem yang memecahkan masalah spesifik di workflow Anda.
              </p>
-             
-             {/* Abstract Visual - Hidden on small mobile to save space, visible on large screens */}
+
              <div className="hidden md:block relative w-full h-64 lg:h-80 rounded-2xl overflow-hidden bg-space-800 border border-white/5 shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 to-purple-900/20" />
                 <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
@@ -350,24 +334,21 @@ export const Services = () => {
              </div>
            </div>
 
-           {/* Services List with Micro-Visuals */}
            <div className="space-y-4 md:space-y-6">
               {services.map((service, idx) => (
                 <motion.div 
                   key={idx}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-10%" }} // Trigger a bit earlier on mobile
+                  viewport={{ once: true, margin: "-10%" }}
                   transition={{ delay: idx * 0.1 }}
-                  whileTap={{ scale: 0.98 }} // Tactile feedback
+                  whileTap={{ scale: 0.98 }}
                   className="group relative p-1 bg-gradient-to-b from-white/10 to-white/5 rounded-[2rem] hover:from-cyan-500/50 hover:to-purple-500/50 active:from-cyan-500/30 active:to-purple-500/30 transition-all duration-500"
                 >
                   <div className="bg-space-900 rounded-[1.9rem] p-5 md:p-8 h-full relative overflow-hidden">
-                    {/* Mobile: ambient glow is always visible but subtle. Desktop: stronger on hover */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500" />
                     
                     <div className="flex flex-col sm:flex-row gap-5 md:gap-6 items-start">
-                      {/* Micro Visual Box - Animated on View */}
                       <div className="shrink-0 w-full sm:w-20 h-20 rounded-2xl bg-space-800 border border-white/10 overflow-hidden shadow-inner shadow-black/50 group-hover:border-cyan-500/30 transition-colors">
                          <service.visual />
                       </div>
