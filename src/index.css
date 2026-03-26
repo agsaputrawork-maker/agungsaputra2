@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400;
+  }
+  
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+:root {
+  --mouse-x: -500px;
+  --mouse-y: -500px;
+}
+
+body {
+  @apply bg-space-900 text-slate-300 font-sans antialiased overflow-x-hidden;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.05), transparent 40%),
+    radial-gradient(circle at 0% 50%, rgba(20, 184, 166, 0.03), transparent 30%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+::selection {
+  background: rgba(6, 182, 212, 0.3);
+  color: white;
+}
+
+/* Bento Card Style */
+.bento-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5);
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+.bento-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Magnetic Button Wrapper */
+.magnetic-wrap {
+  display: inline-block;
+}
+
+.magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Fade Up Utility */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Details/Summary Animation */
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary ~ * {
+  animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Glow Utilities */
+.shadow-glow-cyan {
+  box-shadow: 0 0 40px -10px rgba(6, 182, 212, 0.3);
+}
+
+.shadow-glow-purple {
+  box-shadow: 0 0 40px -10px rgba(217, 70, 239, 0.3);
+}
+
+.glass-nav {
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
