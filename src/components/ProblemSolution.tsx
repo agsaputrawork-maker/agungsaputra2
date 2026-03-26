@@ -55,7 +55,6 @@ export const Problem = () => {
           </div>
 
           <div className="relative lg:h-[600px] flex items-center justify-center">
-             {/* Abstract Chaos Visual */}
              <div className="absolute inset-0 bg-red-500/5 blur-[100px] rounded-full" />
              
              <div className="relative w-full max-w-md space-y-4">
@@ -109,7 +108,6 @@ export const Solution = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-          {/* Before Card */}
           <div className="p-8 rounded-3xl bg-space-900/50 border border-white/5 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-500 group">
             <div className="text-xs font-bold text-slate-500 uppercase mb-6 tracking-widest group-hover:text-red-400">Cara Lama</div>
             <h3 className="text-2xl font-bold text-slate-300 mb-6 group-hover:text-white">Manual & Berantakan</h3>
@@ -125,8 +123,6 @@ export const Solution = () => {
               </li>
             </ul>
           </div>
-
-          {/* After Card */}
           <motion.div 
              whileHover={{ scale: 1.02 }}
              className="relative p-8 rounded-3xl bg-space-900 border border-cyan-500/30 shadow-2xl shadow-cyan-900/20 overflow-hidden"
