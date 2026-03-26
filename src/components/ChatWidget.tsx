@@ -159,12 +159,14 @@ const ChatWidget = memo(() => {
             <button 
                 onClick={handleReset}
                 title="Reset Chat"
+                aria-label="Reset chat conversation"
                 className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-full transition-colors"
             >
                 <RefreshCw size={18} />
             </button>
             <button 
                 onClick={() => setIsOpen(false)}
+                aria-label="Close chat"
                 className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-full transition-colors"
             >
                 <X size={22} />
@@ -237,6 +239,7 @@ const ChatWidget = memo(() => {
             <button 
               type="submit"
               disabled={!inputValue.trim() || isTyping}
+              aria-label={isTyping ? "Sending message" : "Send message"}
               className={`
                 absolute right-2 p-1.5 rounded-lg transition-all duration-300
                 ${!inputValue.trim() || isTyping 
