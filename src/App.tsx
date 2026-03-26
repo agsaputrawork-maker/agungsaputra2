@@ -13,7 +13,7 @@ import { FinalCTA, Footer } from './components/FooterCTA';
 import ChatWidget from './components/ChatWidget';
 
 const NotFound = lazy(() => import('./pages/NotFound'));
-const Privacy = lazy(() => import('./pages/Privacy'));
+const Privacy = lazy(() => import('./pages/privacy'));
 const Terms = lazy(() => import('./pages/terms'));
 const Agent = lazy(() => import('./pages/agent'));
 
