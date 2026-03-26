@@ -5,16 +5,22 @@ const AccordionItem = ({ question, answer, isOpen, onClick }: { question: string
   return (
     <div className="border-b border-white/5">
       <button 
-        className="flex justify-between items-start w-full py-6 text-left focus:outline-none group"
-        onClick={onClick}
-      >
-        <span className={`text-lg font-medium transition-colors ${isOpen ? 'text-cyan-400' : 'text-slate-300 group-hover:text-white'}`}>
-          {question}
-        </span>
-        <div className={`mt-1 p-1 rounded-full transition-colors shrink-0 ${isOpen ? 'bg-cyan-500/20 text-cyan-400' : 'text-slate-500 group-hover:text-white'}`}>
-          {isOpen ? <Minus size={18} /> : <Plus size={18} />}
-        </div>
-      </button>
+  className="flex justify-between items-start w-full py-6 text-left focus:outline-none group"
+  onClick={onClick}
+  aria-label={question}
+  aria-expanded={isOpen}
+>
+  <span className={`text-lg font-medium transition-colors ${isOpen ? 'text-cyan-400' : 'text-slate-300 group-hover:text-white'}`}>
+    {question}
+  </span>
+
+  <div 
+    aria-hidden="true"
+    className={`mt-1 p-1 rounded-full transition-colors shrink-0 ${isOpen ? 'bg-cyan-500/20 text-cyan-400' : 'text-slate-500 group-hover:text-white'}`}
+  >
+    {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+  </div>
+</button>
       <div 
         className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100 pb-6" : "max-h-0 opacity-0"}`}
       >
@@ -64,13 +70,10 @@ export const Objections = () => {
 
   return (
     <section id="faq" className="py-24 bg-space-900 relative">
-       {/* Decorative Elements */}
        <div className="absolute left-0 bottom-0 w-64 h-64 bg-purple-500/5 rounded-full blur-[80px] pointer-events-none" />
 
        <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start">
-          
-          {/* Left Column: Heading & Sticky Content */}
           <div className="lg:col-span-5 lg:sticky lg:top-32">
             <span className="text-cyan-500 font-bold uppercase tracking-widest text-xs mb-3 block">FAQ</span>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-heading">
@@ -97,8 +100,6 @@ export const Objections = () => {
                </div>
             </div>
           </div>
-
-          {/* Right Column: Accordion */}
           <div className="lg:col-span-7">
             <div className="bg-space-800/50 rounded-3xl p-6 md:p-8 border border-white/5">
               {objections.map((obj, i) => (
